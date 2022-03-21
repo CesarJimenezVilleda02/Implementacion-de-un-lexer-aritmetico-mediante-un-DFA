@@ -18,16 +18,16 @@ using namespace std;
 // =================================================================
 // Función que imprime los tokens encontrados en un archivo.
 //
-// Análsisi de complejidad:
+// Análsis de complejidad:
 /*
 La complejidad es de este algoritmo es de O(n*m), donde n es la cantidad 
-de posible smatches que se pueden encontrar en el string y m es la 
+de posible matches que se pueden encontrar en el string y m es la 
 cantidad de tokens que se buscan.
 */
 // @param row, un string de cada línea del archivo que se lee
 // =================================================================
 void analizeRow(string row) {
-  // Expresiones regulare spara encontrar todos los tokens
+  // Expresiones regulares para encontrar todos los tokens
   string variables = "[a-zA-Z][a-zA-Z0-9_]*";
   string operands = "\\/|\\+|\\-|\\*|\\=|\\(|\\)|\\^";
   string comments = "\\/\\/.*";
@@ -35,7 +35,7 @@ void analizeRow(string row) {
   string real = "\\-*[0-9]+\\.[0-9]+((E|e)(\\+|\\-)?[0-9]+)?";
   std::regex e(comments + "|" + real +"|" + variables + "|" + operands  + "|" + integers);
   
-  // Itereador de todos los matches de las expresiones regulares
+  // Iterador de todos los matches de las expresiones regulares
   std::regex_iterator<std::string::iterator> rit( row.begin(), row.end(), e);
   std::regex_iterator<std::string::iterator> rend;
 
@@ -90,7 +90,7 @@ void analizeRow(string row) {
 // =================================================================
 // Función implementa un lexer aritmético
 //
-// Análsisi de complejidad:
+// Análsis de complejidad:
 /*
 La complejidad es de esta función es de O(n*m*l), donde l es la 
 cantidad de líneas del archivo, m es la camtidad de matches y n 
